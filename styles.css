@@ -1,0 +1,59 @@
+.board {
+    width: 500px;
+    height: 500px;
+    display: grid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .column:hover {
+    background-color: indigo;
+    opacity: 1;
+    transition: .5s;
+} */
+
+/* .column {
+    display: flex;
+    transition: 0s 180s;
+    border:solid gray;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 0px;
+}
+
+div {
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+}
+
+#container {
+    display:table;
+    vertical-align: middle;
+    text-align: center;
+    height: 750px;
+    width: 100%;
+    background-color: bisque;
+} */
+
+
+
+
+
+
+

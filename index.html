@@ -5,113 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="container"></div>
+    <button onclick="playGame()">Use etch-a-sketch</button>
+    <button onclick="grid()">Reset board</button>
+
     <script>
-        let main_div = document.createElement('div');
-        main_div.textContent = 'mainBox';
-        main_div.setAttribute('id','mainBox');
-            let oneVert_div = document.createElement('div');
-            oneVert_div.textContent = 'box 1 v';
-            main_div.appendChild(oneVert_div);
-            let twoVert_div = document.createElement('div');
-            twoVert_div.textContent = 'box 2 v';
-            main_div.appendChild(twoVert_div);
-            let threeVert_div = document.createElement('div');
-            threeVert_div.textContent = 'box 3 v';
-            main_div.appendChild(threeVert_div);
-            let fourVert_div = document.createElement('div');
-            fourVert_div.textContent = 'box 4 v';
-            main_div.appendChild(fourVert_div);
-            let fiveVert_div = document.createElement('div');
-            fiveVert_div.textContent = 'box 5 v';
-            main_div.appendChild(fiveVert_div);
-            let sixVert_div = document.createElement('div');
-            sixVert_div.textContent = 'box 6 v';
-            main_div.appendChild(sixVert_div);
-            let sevenVert_div = document.createElement('div');
-            sevenVert_div.textContent = 'box 7 v';
-            main_div.appendChild(sevenVert_div);
-            let eightVert_div = document.createElement('div');
-            eightVert_div.textContent = 'box 8 v';
-            main_div.appendChild(eightVert_div);
-            let nineVert_div = document.createElement('div');
-            nineVert_div.textContent = 'box 9 v';
-            main_div.appendChild(nineVert_div);
-            let tenVert_div = document.createElement('div');
-            tenVert_div.textContent = 'box 10 v';
-            main_div.appendChild(tenVert_div);
-            let elevenVert_div = document.createElement('div');
-            elevenVert_div.textContent = 'box 11 v';
-            main_div.appendChild(elevenVert_div);
-            let twelveVert_div = document.createElement('div');
-            twelveVert_div.textContent = 'box 12 v';
-            main_div.appendChild(twelveVert_div);
-            let thirteenVert_div = document.createElement('div');
-            thirteenVert_div.textContent = 'box 13 v';
-            main_div.appendChild(thirteenVert_div);
-            let fourteenVert_div = document.createElement('div');
-            fourteenVert_div.textContent = 'box 14 v';
-            main_div.appendChild(fourteenVert_div);
-            let fifteenVert_div = document.createElement('div');
-            fifteenVert_div.textContent = 'box 15 v';
-            main_div.appendChild(fifteenVert_div);
-            let sixteenVert_div = document.createElement('div');
-            sixteenVert_div.textContent = 'box 16 v';
-            main_div.appendChild(sixteenVert_div);
+        
 
-            let oneH_div = document.createElement('div');
-            oneH_div.textContent = 'box 1 h';
-            main_div.appendChild(oneH_div);
-            let twoH_div = document.createElement('div');
-            twoH_div.textContent = 'box 2 h';
-            main_div.appendChild(twoH_div);
-            let threeH_div = document.createElement('div');
-            threeH_div.textContent = 'box 3 h';
-            main_div.appendChild(threeH_div);
-            let fourH_div = document.createElement('div');
-            fourH_div.textContent = 'box 4 h';
-            main_div.appendChild(fourH_div);
-            let fiveH_div = document.createElement('div');
-            fiveH_div.textContent = 'box 5 h';
-            main_div.appendChild(fiveH_div);
-            let sixH_div = document.createElement('div');
-            sixH_div.textContent = 'box 6 h';
-            main_div.appendChild(sixH_div);
-            let sevenH_div = document.createElement('div');
-            sevenH_div.textContent = 'box 7 h';
-            main_div.appendChild(sevenH_div);
-            let eightH_div = document.createElement('div');
-            eightH_div.textContent = 'box 8 h';
-            main_div.appendChild(eightH_div);
-            let nineH_div = document.createElement('div');
-            nineH_div.textContent = 'box 9 h';
-            main_div.appendChild(nineH_div);
-            let tenH_div = document.createElement('div');
-            tenH_div.textContent = 'box 10 h';
-            main_div.appendChild(tenH_div);
-            let elevenH_div = document.createElement('div');
-            elevenH_div.textContent = 'box 11 h';
-            main_div.appendChild(elevenH_div);
-            let twelveH_div = document.createElement('div');
-            twelveH_div.textContent = 'box 12 h';
-            main_div.appendChild(twelveH_div);
-            let thirteenH_div = document.createElement('div');
-            thirteenH_div.textContent = 'box 13 h';
-            main_div.appendChild(thirteenH_div);
-            let fourteenH_div = document.createElement('div');
-            fourteenH_div.textContent = 'box 14 h';
-            main_div.appendChild(fourteenH_div);
-            let fifteenH_div = document.createElement('div');
-            fifteenH_div.textContent = 'box 15 h';
-            main_div.appendChild(fifteenH_div);
-            let sixteenH_div = document.createElement('div');
-            sixteenH_div.textContent = 'box 16 h';
-            main_div.appendChild(sixteenH_div);
-
+        const container = document.getElementById('container');
+        let rows = document.getElementsByClassName('gridRow');
+        container.appendChild('rows');
+        let columns = document.getElementsByClassName('column');
+        container.appendChild('columns');
 
 
         
+        function defRows(rowNum) {
+            let squares = container.querySelectorAll('div');
+            squares.forEach((div) => div.remove());
+            for (i = 0; i < rowNum; i++) {
+                let row = document.createElement('div');
+                container.appendChild(row).className = 'gridRow';
+            };
+        };
+
+
+        function defColumns(columnNum) {
+            for (i = 0; i < rows.length; i++) {
+                for (c = 0; c < columnNum; c++) {
+                    let newColumn = document.createElement('div');
+                    rows[c].appendChild(newColumn).className = 'column';
+                };
+            };
+        };
+
+        function grid() {
+            window.location.reload();
+        };
+
+        function playGame() {
+                defRows(prompt('Enter number of rows here'));
+                defColumns(prompt('Enter number of columns here'));
+        };
 
 
 
